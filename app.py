@@ -8,8 +8,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 def extract_text(file):
     if file.name.endswith(".pdf"):
         with pdfplumber.open(file) as pdf:
-            text = " ".join([page.extract_text() forgit --version
- page in pdf.pages if page.extract_text()])
+            text = " ".join([page.extract_text() for page in pdf.pages if page.extract_text()])
     elif file.name.endswith(".docx"):
         doc = docx.Document(file)
         text = " ".join([p.text for p in doc.paragraphs])
